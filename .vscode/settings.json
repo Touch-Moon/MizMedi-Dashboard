@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.scss": "scss"
+  },
+  "scss.validate": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}

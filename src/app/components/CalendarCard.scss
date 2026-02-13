@@ -1,0 +1,160 @@
+// =============================================================================
+// Calendar Card - BEM
+// Block: .calendar-card
+// 라이트 모드: WelcomeCard 등과 톤앤매너 맞춤 (흰 배경, #d3d3d3 테두리, #007A8C 포인트)
+// 다크 모드: html.dark 기준
+// =============================================================================
+
+$calendar-border: #d3d3d3;
+$calendar-border-dark: #374151;
+$calendar-title: #007a8c;
+$calendar-title-dark: #4db8cc;
+$calendar-text: #000;
+$calendar-text-dark: #d1d5db;
+$calendar-muted: #6b7280;
+$calendar-muted-dark: #9ca3af;
+$calendar-link: #4b5563;
+$calendar-link-hover: #374151;
+$calendar-link-dark: #9ca3af;
+$calendar-link-hover-dark: #d1d5db;
+$calendar-bg: #fff;
+$calendar-bg-dark: #1f2937;
+$dot-pink: #f472b6;
+$dot-green: #4ade80;
+$dot-blue: #60a5fa;
+
+.calendar-card {
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid $calendar-border;
+  background-color: $calendar-bg;
+
+  html.dark & {
+    border-color: $calendar-border-dark;
+    background-color: $calendar-bg-dark;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $calendar-border;
+
+    html.dark & {
+      border-bottom-color: $calendar-border-dark;
+    }
+  }
+
+  &__title {
+    color: $calendar-title;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+
+    html.dark & {
+      color: $calendar-title-dark;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: $calendar-link;
+    font-size: 0.875rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.4s ease;
+
+    &:hover {
+      color: $calendar-link-hover;
+    }
+
+    html.dark & {
+      color: $calendar-link-dark;
+
+      &:hover {
+        color: $calendar-link-hover-dark;
+      }
+    }
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  &__weekday {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $calendar-muted;
+    padding: 8px 0;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px 0;
+  }
+
+  &__day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.4);
+
+    html.dark & {
+      border-bottom-color: rgba(55, 65, 81, 0.5);
+    }
+  }
+
+  &__date {
+    color: $calendar-text;
+    margin-bottom: 4px;
+    font-size: 0.875rem;
+
+    html.dark & {
+      color: $calendar-text-dark;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+
+    &--pink {
+      background-color: $dot-pink;
+    }
+
+    &--green {
+      background-color: $dot-green;
+    }
+
+    &--blue {
+      background-color: $dot-blue;
+    }
+  }
+
+  &__footer {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+}

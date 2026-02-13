@@ -1,0 +1,765 @@
+// =============================================================================
+// Section Footer - BEM
+// Block: .section-footer
+// =============================================================================
+
+$footer-font-bold: "Pretendard", sans-serif;
+$footer-font-medium: "Pretendard", sans-serif;
+$footer-text: #777;
+$footer-text-light: #bebebe;
+$footer-text-dark: #444;
+$footer-divider: #444;
+$footer-bg-bottom: #222;
+$footer-bg-top-overlay: rgba(0, 36, 44, 0.2);
+$footer-bg-top-base: #f0f7f6;
+$footer-accent: #007a8c;
+$footer-white: #fff;
+$footer-copyright: #888;
+// assets 폴더 이미지 (SCSS 파일 기준 상대 경로: components → app → src → assets)
+$footer-bg-image: url('../../assets/bg-footer.jpg');
+
+.section-footer {
+  width: 100%;
+  padding-top: 160px;
+  overflow: hidden;
+  &__container {
+    width: 100%;
+    display: block;
+
+    background-image: $footer-bg-image;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__background {
+    left: 0;
+    top: 0;
+    display: block;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Footer bottom (dark bar)
+  // ---------------------------------------------------------------------------
+  &__bottom {
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $footer-bg-bottom;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 71px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 27px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: $footer-font-bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 0;
+    color: $footer-text;
+    white-space: nowrap;
+
+    p {
+      line-height: 1.3;
+    }
+
+    &--highlight {
+      color: $footer-text-light;
+      width: 116px;
+      height: 23.111px;
+      white-space: pre-wrap;
+    }
+  }
+
+  &__menu-divider {
+    width: 1px;
+    height: 16px;
+    flex-shrink: 0;
+    background-color: $footer-divider;
+  }
+
+  &__bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    width: 463.25px;
+    margin-left: 0;
+    margin-top: 0;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__info-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-start;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__info-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    height: 18px;
+    width: 100%;
+    flex-shrink: 0;
+
+    &--narrow {
+      width: 375.063px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    font-family: $footer-font-bold;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 0;
+    color: $footer-text;
+    white-space: nowrap;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+
+  &__info-divider {
+    width: 1px;
+    height: 14px;
+    flex-shrink: 0;
+    background-color: $footer-divider;
+  }
+
+  &__copyright {
+    font-family: $footer-font-medium;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $footer-text;
+    width: 100%;
+    white-space: pre-wrap;
+    flex-shrink: 0;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__icon {
+    width: 25.5px;
+    height: 24.035px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+  }
+
+  &__badge {
+    display: flex;
+    gap: 26px;
+    align-items: center;
+    margin-top: 0;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__badge-inner {
+    display: inline-grid;
+    grid-template-columns: max-content;
+    grid-template-rows: max-content;
+    place-items: start;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  &__badge-label {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 52.06px;
+    margin-top: 7.56px;
+    font-family: $footer-font-bold;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.3;
+    color: $footer-copyright;
+    width: 91.375px;
+    white-space: pre-wrap;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+
+  &__badge-img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 46.989px;
+    height: 47.093px;
+
+    img {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      pointer-events: none;
+    }
+  }
+
+  &__logo {
+    width: 150.221px;
+    height: 45.066px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  // Logo inner SVGs
+  &__logo-xmlid {
+    display: contents;
+    inset: 10.46% 0.4% 11.79% 0.83%;
+  }
+
+  &__logo-xmlid-bar {
+    inset: 24.78% 0.4% 42.89% 22.1%;
+  }
+
+  &__logo-xmlid-bar svg,
+  &__logo-xmlid-deco svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+
+  &__logo-xmlid-deco {
+    inset: 10.59% 83.61% 12.02% 0.83%;
+  }
+
+  &__logo-xmlid-deco-inner {
+    inset: 10.63% 83.63% 12% 0.83%;
+  }
+
+  &__logo-xmlid-deco-inner svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+
+  &__logo-line {
+    inset: 65.08% 0.5% 26.33% 22.2%;
+  }
+
+  &__logo-line svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Footer top (hero with background)
+  // ---------------------------------------------------------------------------
+  &__top {
+    width: 100%;
+    max-width: 1440px;
+    padding: 107px 40px 100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__mask {
+    display: block;
+  }
+
+  &__mask-bg {
+    mask-repeat: no-repeat;
+    background-image: $footer-bg-image;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__mask-inner {
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__mask-base {
+    inset: 0;
+    background-color: $footer-bg-top-base;
+  }
+
+  &__mask-img {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+  }
+
+  &__mask-overlay {
+    inset: 0;
+    background: $footer-bg-top-overlay;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    width: 1360px;
+    flex-shrink: 0;
+  }
+
+  &__hero-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__hero-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+    width: 410px;
+    flex-shrink: 0;
+  }
+
+  &__hero-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    width: 100%;
+    font-family: $footer-font-bold;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__hero-title-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    font-size: 26px;
+    line-height: 0;
+  }
+
+  &__hero-title {
+    font-size: 56px;
+    line-height: 1.1;
+    white-space: pre-wrap;
+
+    p {
+      line-height: 1.3;
+
+      &:first-child {
+        margin-bottom: 13px;
+      }
+    }
+  }
+
+  &__hero-title-wrap p {
+    line-height: 1.3;
+  }
+
+  &__hero-desc {
+    font-family: $footer-font-medium;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.3;
+    color: $footer-white;
+    white-space: nowrap;
+
+    p {
+      &:first-child {
+        margin-bottom: 13px;
+      }
+    }
+  }
+
+  &__hero-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    width: 100%;
+    color: $footer-white;
+    flex-shrink: 0;
+    font-style: normal;
+  }
+
+  &__btn {
+    display: inline-grid;
+    grid-template-columns: max-content;
+    grid-template-rows: max-content;
+    place-items: start;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  &__btn-bg {
+    grid-column: 1;
+    grid-row: 1;
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: $footer-accent;
+  }
+
+  &__btn-arrow {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 122px;
+    margin-top: 14px;
+    width: 12px;
+    height: 22px;
+  }
+
+  &__btn-arrow svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+
+  &__btn-label {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 10.67%;
+    margin-top: 14.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $footer-font-medium;
+    font-weight: 500;
+    font-size: 16px;
+    color: $footer-white;
+    white-space: nowrap;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+
+  &__floor-guide {
+    display: block;
+  }
+
+  &__floor-img-wrap {
+    grid-column: 1;
+    grid-row: 1;
+    width: 786px;
+    height: 217px;
+  }
+
+  &__floor-img-inner {
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &__floor-img-inner img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
+
+  &__floor-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 32px;
+    color: $footer-white;
+    white-space: nowrap;
+    font-style: normal;
+  }
+
+  &__floor-label-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $footer-font-bold;
+    font-weight: 700;
+    font-size: 20px;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+
+  &__floor-label-desc {
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $footer-font-medium;
+    font-weight: 500;
+    font-size: 16px;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+
+  &__divider-line {
+    height: 0;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__divider-line svg {
+    inset: -1px 0 0 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+
+  // SNS row (white icons)
+  &__sns-row {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255, 0.1);
+  }
+
+  &__sns-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  &__sns-item {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--1 { margin-left: 0; }
+    &--2 { margin-left: 44px; }
+    &--3 { margin-left: 88px; }
+    &--4 { margin-left: 132px; overflow: hidden; }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+  }
+
+  &__sns-item-inner {
+    width: 26.27px;
+    height: 24px;
+  }
+
+  &__sns-item-inner svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+
+  // Quick links row (의료질, 오시는길, 전화번호)
+  &__quick-row {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0;
+    display: inline-grid;
+    grid-template-columns: max-content;
+    grid-template-rows: max-content;
+    place-items: start;
+  }
+
+  &__quick-item {
+    grid-column: 1;
+    grid-row: 1;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background: rgba(215, 235, 233, 0);
+    margin-top: 0;
+
+    &--1 { margin-left: 0; }
+    &--2 { margin-left: 144px; }
+    &--3 { margin-left: 252px; }
+  }
+
+  &__quick-item-border {
+    inset: 0;
+    border: 1px solid $footer-white;
+    border-radius: 30px;
+    pointer-events: none;
+  }
+
+  &__quick-item-inner {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 20px;
+    border: 1px solid $footer-white;
+  }
+
+  &__quick-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+  }
+
+  &__quick-icon--transparent {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  &__quick-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $footer-font-bold;
+    font-weight: 700;
+    font-size: 14px;
+    color: $footer-white;
+    white-space: nowrap;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+
+  &__quick-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  // Decorative SVGs (XMLID, grommet etc)
+  &__deco-absolute {
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+  }
+
+  &__deco-contents {
+    display: contents;
+  }
+
+  &__deco-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // Logo XMLID nested
+  &__xmlid-wrap { display: contents; }
+  &__xmlid-wrap-2 { inset: 10.46% 83.61% 11.79% 0.83%; display: contents; }
+  &__xmlid-5 { inset: 10.59% 83.61% 12.02% 0.83%; }
+  &__xmlid-4 { inset: 10.63% 83.63% 12% 0.83%; }
+  &__xmlid-3 { inset: 10.59% 83.61% 12% 0.83%; display: contents; }
+  &__xmlid-2-inner { inset: 10.46% 83.65% 11.79% 0.83%; }
+  &__xmlid-1 { inset: 24.78% 0.4% 42.89% 22.1%; }
+  &__xmlid-line { inset: 65.08% 0.5% 26.33% 22.2%; }
+  &__xmlid-contents { inset: 10.46% 0.4% 11.79% 0.83%; display: contents; }
+  &__icon-center { width: 19.703px; height: 18px; }
+  &__icon-center svg { display: block; width: 100%; height: 100%; fill: none;  }
+  &__group-inner { inset: 17.72% 4.18% 17.72% 4.17%; }
+  &__group-inner svg { display: block; width: 100%; height: 100%; fill: none;  }
+  &__quick-icon-inner { inset: 15.91% 22.76% 15.9% 22.76%; }
+  &__quick-icon-inner svg { display: block; width: 100%; height: 100%; fill: none;  }
+
+  // 공통 SVG
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
