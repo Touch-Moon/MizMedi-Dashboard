@@ -1,0 +1,66 @@
+// =============================================================================
+// App Layout - BEM
+// Block: .app
+// =============================================================================
+
+$app-bg: #f9fafb;
+$app-bg-dark: #111827;
+
+$app-max-width: 1440px;
+$app-gap: 24px;
+$app-padding: 24px;
+
+$app-breakpoint-lg: 1024px;
+
+.app {
+  min-height: 100vh;
+  background-color: $app-bg;
+  transition: background-color 0.4s ease, color 0.4s ease;
+
+  html.dark & {
+    background-color: $app-bg-dark;
+  }
+
+  &__content {
+    padding: $app-padding;
+  }
+
+  &__container {
+    max-width: $app-max-width;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $app-gap;
+
+    @media (min-width: $app-breakpoint-lg) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: $app-gap;
+
+    &--span-3 {
+      @media (min-width: $app-breakpoint-lg) {
+        grid-column: span 3 / span 3;
+      }
+    }
+
+    &--span-4 {
+      @media (min-width: $app-breakpoint-lg) {
+        grid-column: span 4 / span 4;
+      }
+    }
+
+    &--span-5 {
+      @media (min-width: $app-breakpoint-lg) {
+        grid-column: span 5 / span 5;
+      }
+    }
+  }
+}
