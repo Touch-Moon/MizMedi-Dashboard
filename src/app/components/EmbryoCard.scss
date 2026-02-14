@@ -1,0 +1,45 @@
+// =============================================================================
+// Embryo Card - BEM
+// Block: .embryo-card
+// =============================================================================
+@use '../../styles/variables' as v;
+
+.embryo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+  padding: v.$layout-padding;
+  border-radius: 8px;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-bg;
+
+  html.dark & {
+    border-color: v.$color-border-dark;
+    background-color: v.$color-bg-dark;
+  }
+
+  &__icon-wrap {
+    margin-bottom: 16px;
+  }
+
+  &__icon {
+    color: v.$color-icon;
+
+    html.dark & {
+      color: v.$color-icon-dark;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text;
+
+    html.dark & {
+      color: v.$color-text-dark;
+    }
+  }
+}

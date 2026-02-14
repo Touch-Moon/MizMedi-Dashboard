@@ -1,0 +1,125 @@
+// =============================================================================
+// Appointment Card - BEM
+// Block: .appointment-card
+// =============================================================================
+@use '../../styles/variables' as v;
+
+.appointment-card {
+  border-radius: 8px;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-bg;
+  padding: v.$layout-padding;
+
+  html.dark & {
+    border-color: v.$color-border-dark;
+    background-color: v.$color-bg-dark;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin: 0;
+    color: v.$color-accent;
+    font-size: v.$font-size-m;
+    font-weight: v.$font-weight-semibold;
+
+    html.dark & {
+      color: v.$color-accent-dark;
+    }
+  }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: v.$color-icon-muted;
+    cursor: pointer;
+    transition: color 0.4s ease;
+
+    html.dark & {
+      color: v.$color-icon-muted-dark;
+    }
+
+    &:hover {
+      color: v.$color-link-hover;
+    }
+
+    html.dark &:hover {
+      color: v.$color-link-hover-dark;
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &__info {
+    min-width: 0;
+  }
+
+  &__date {
+    margin: 0 0 4px;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text;
+
+    html.dark & {
+      color: v.$color-text-dark;
+    }
+  }
+
+  &__department {
+    margin: 0 0 4px;
+    color: v.$color-muted;
+
+    html.dark & {
+      color: v.$color-muted-dark;
+    }
+  }
+
+  &__doctor {
+    margin: 0;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text;
+
+    html.dark & {
+      color: v.$color-text-strong-dark;
+    }
+  }
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 9999px;
+    overflow: hidden;
+    background-color: v.$color-avatar-bg;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    html.dark & {
+      background-color: v.$color-avatar-bg-dark;
+    }
+  }
+
+  &__avatar-icon {
+    width: 40px;
+    height: 40px;
+    color: v.$color-icon-muted;
+
+    html.dark & {
+      color: v.$color-icon-muted-dark;
+    }
+  }
+}

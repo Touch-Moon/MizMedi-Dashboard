@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import svgPaths from "../../imports/svg-9lna0gexs7";
-import { Submenu } from "./Submenu";
+import Submenu from "./Submenu";
 import "./Navigation.scss";
 
 // Logo SVG Components

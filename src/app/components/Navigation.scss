@@ -1,30 +1,27 @@
-// Variables
-$color-white: #ffffff;
-$color-nav-dark: #0a0a0a;
+// =============================================================================
+// Navigation - BEM
+// =============================================================================
+@use '../../styles/variables' as v;
+
 $color-divider: #d9d9d9;
 $color-divider-light: #dddddd;
 $color-bg: rgba(255, 255, 255, 0);
 
-// Breakpoints
-$breakpoint-mobile: 979px;
-$breakpoint-tablet: 980px;
-$breakpoint-desktop: 1280px;
-
 // Mixins
 @mixin mobile {
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: v.$breakpoint-mobile) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: $breakpoint-tablet) and (max-width: calc($breakpoint-desktop - 1px)) {
+  @media (min-width: v.$breakpoint-tablet) and (max-width: calc(v.$breakpoint-desktop - 1px)) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: v.$breakpoint-desktop) {
     @content;
   }
 }
@@ -51,10 +48,10 @@ $breakpoint-desktop: 1280px;
   background-color: $color-bg;
   width: 100%;
   position: relative;
-  color: $color-nav-dark;
+  color: v.$color-text-nav;
 
   html.dark & {
-    color: $color-white;
+    color: v.$color-white;
   }
 
   // Mobile: 979px 이하
@@ -168,19 +165,19 @@ $breakpoint-desktop: 1280px;
   gap: 8px;
   color: inherit;
   font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: v.$font-weight-bold;
+  font-size: v.$font-size-l;
   line-height: 1.3;
   white-space: nowrap;
   
   @include mobile {
-    font-size: 16px;
+    font-size: v.$font-size-m;
     gap: 6px;
     display: none;
   }
   
   @include tablet {
-    font-size: 18px;
+    font-size: v.$font-size-ml;
   }
   
   .down-arrow-icon {
@@ -321,18 +318,18 @@ $breakpoint-desktop: 1280px;
     @include button-reset;
     color: inherit;
     font-family: 'Pretendard', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: v.$font-weight-bold;
+    font-size: v.$font-size-l;
     line-height: 1.3;
     white-space: nowrap;
     transition: opacity 0.3s ease;
     
     @include mobile {
-      font-size: 24px;
+      font-size: v.$font-size-xl;
     }
     
     @include tablet {
-      font-size: 18px;
+      font-size: v.$font-size-ml;
     }
     
     &:hover {
@@ -378,13 +375,13 @@ $breakpoint-desktop: 1280px;
   
   span {
     font-family: 'Pretendard', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: v.$font-weight-medium;
+    font-size: v.$font-size-base;
     line-height: 1.3;
     white-space: nowrap;
     
     @include mobile {
-      font-size: 16px;
+      font-size: v.$font-size-m;
     }
   }
   

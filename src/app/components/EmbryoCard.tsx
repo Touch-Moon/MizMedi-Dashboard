@@ -1,18 +1,85 @@
 import React from "react";
 
-export function EmbryoCard() {
+import "./EmbryoCard.scss";
+
+export default function EmbryoCard() {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-[8px] p-6 border border-[#d3d3d3] dark:border-gray-700 flex flex-col items-center justify-center text-center min-h-[200px]">
-      <div className="mb-4">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="35" r="15" stroke="currentColor" strokeWidth="2" fill="none" className="text-gray-300 dark:text-gray-600"/>
-          <path d="M40 20 Q50 25 50 35 Q50 45 40 50" stroke="currentColor" strokeWidth="2" fill="none" className="text-gray-300 dark:text-gray-600"/>
-          <path d="M40 20 Q30 25 30 35 Q30 45 40 50" stroke="currentColor" strokeWidth="2" fill="none" className="text-gray-300 dark:text-gray-600"/>
-          <circle cx="40" cy="35" r="8" fill="currentColor" className="text-gray-200 dark:text-gray-700"/>
-          <path d="M35 55 Q40 60 45 55" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" className="text-gray-300 dark:text-gray-600"/>
+    <div className="embryo-card">
+      <div className="embryo-card__icon-wrap">
+        <svg
+          width="80"
+          height="80"
+          viewBox="0 0 49 52"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="embryo-card__icon"
+        >
+          <path
+            d="M24.1137 10.7632C23.4407 10.0804 22.5337 8.92956 20.388 8.72474C19.637 8.65647 18.3886 8.54918 17.0622 9.15388C16.3112 9.49524 15.882 9.91463 14.9652 9.97315C14.6434 9.99266 13.8338 10.0512 13.3364 9.53426C12.9951 9.17339 13.1511 8.87104 12.7512 8.48091C12.6732 8.40289 12.2051 7.9835 11.6004 8.08103C11.1615 8.1493 10.8884 8.4614 10.8103 8.54918C10.2739 9.17339 10.391 10.0707 10.4495 10.5486C10.625 11.8458 11.3175 12.7138 11.6199 13.0747C12.5757 14.2353 13.7461 14.7327 14.3898 14.9375"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M20.1846 21.1402C21.0721 20.4087 22.5644 18.936 23.2568 16.605"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M30.114 20.5063C26.2225 19.8723 23.3355 17.7559 22.9356 15.1908C22.7308 13.8546 23.0819 11.6504 24.3011 10.8018C24.4864 10.675 24.9546 10.3434 25.53 10.4507C25.9396 10.5288 26.4468 10.8409 26.5931 11.4163C26.7101 11.8747 26.359 12.0307 26.2517 12.6842C26.1152 13.4742 26.4175 14.3618 26.9735 14.9177C27.4026 15.3371 27.8805 15.4639 28.3682 15.6004C28.9046 15.7467 29.2947 15.7467 30.0652 15.7467C31.7135 15.7467 32.5425 15.7467 32.7084 15.776C32.9912 15.8247 33.4789 15.9808 33.986 16.2734C34.2884 16.4489 34.5127 16.6245 34.5712 16.6733"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M20.0274 13.0454C19.647 13.0941 15.063 13.1721 13.2879 17.0734C12.4297 18.9655 12.6442 20.8479 12.732 21.4819C12.8295 22.2231 13.2002 24.1543 14.7704 25.9001C16.2042 27.4996 17.8915 28.0555 18.7497 28.3189C25.1869 30.367 31.5655 25.4319 32.0043 25.0808C35.7788 22.0768 36.7737 18.3999 36.8029 18.2828C36.8029 18.2828 36.8127 18.2243 36.8322 18.1463C36.8712 18.0195 36.9297 17.8147 37.0468 17.6001C37.5247 16.654 38.422 16.2444 38.7048 16.0884C39.9142 15.4446 41.2406 14.284 42.0306 13.0746C43.3766 11.0069 43.4936 8.28578 42.6451 6.08156C41.3674 2.76547 38.3342 1.73163 37.5832 1.46829C36.8907 1.23422 33.6819 0.229636 30.4731 2.17052C30.1707 2.35584 27.4008 4.08215 26.4938 7.61281C26.1622 8.9295 26.1914 10.0609 26.2695 10.8119"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M34.3936 9.4363C35.086 9.35827 35.72 9.65087 35.9541 10.1873C36.3052 10.9773 35.8273 12.3232 34.6666 12.9182"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M8.7252 28.6944L6.40393 22.2183C5.87726 20.7456 4.49231 19.7507 3.14636 19.9848C1.43955 20.2774 0.561763 22.1988 1.20548 23.9836L5.59442 36.2044C5.90652 37.0627 6.42344 37.8234 7.08666 38.3989C9.3299 40.33 13.9919 43.334 14.3138 44.241C14.8697 45.782 15.1526 47.4011 15.1526 49.0299V51"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M13.6996 36.9648L9.29113 33.6292C8.15976 32.6636 7.70136 30.9568 8.32557 29.6596C9.07656 28.0991 10.9492 27.787 12.2756 28.9281L19.9221 35.0434C20.7707 35.6383 21.4631 36.5259 21.863 37.628L22.7798 40.1931C23.5406 42.3193 23.9307 44.5625 23.9307 46.8253V50.9996"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M39.6334 28.6944L41.9547 22.2183C42.4814 20.7456 43.8663 19.7507 45.2123 19.9848C46.9191 20.2774 47.7969 22.1988 47.1531 23.9836L42.7642 36.2044C42.4521 37.0627 41.9352 37.8234 41.272 38.3989C39.0287 40.33 34.3667 43.334 34.0448 44.241C33.4889 45.782 33.2061 47.4011 33.2061 49.0299V51"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M34.6598 36.9653L39.0683 33.6297C40.1996 32.6641 40.658 30.9573 40.0338 29.6601C39.2828 28.0996 37.4102 27.7875 36.0838 28.9286L28.4373 35.0439C27.5887 35.6388 26.8963 36.5264 26.4964 37.6285L25.5796 40.1936C24.8188 42.3198 24.4287 44.563 24.4287 46.8258V51.0001"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </div>
-      <p className="text-[#000] dark:text-gray-300 font-medium">
+      <p className="embryo-card__text">
         배아의 발달 상태를<br />확인해보세요.
       </p>
     </div>

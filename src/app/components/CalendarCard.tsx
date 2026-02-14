@@ -82,7 +82,7 @@ function getAllSchedulesSorted(): FullScheduleRow[] {
 
 const LIST_COUNT_OPTIONS = [5, 10, 20, 50] as const;
 
-export function CalendarCard() {
+export default function CalendarCard() {
   const [viewMode, setViewMode] = useState<ViewMode>("month");
   const [currentDate, setCurrentDate] = useState(() => new Date(2026, 1, 1));
   const [hoveredDateKey, setHoveredDateKey] = useState<string | null>(null);

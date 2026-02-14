@@ -11,7 +11,7 @@ interface MedicationCardProps {
   medications: Medication[];
 }
 
-export function MedicationCard({ medications }: MedicationCardProps) {
+export default function MedicationCard({ medications }: MedicationCardProps) {
   const categories = [
     { label: "주사", color: "bg-pink-400" },
     { label: "경구약", color: "bg-green-400" },

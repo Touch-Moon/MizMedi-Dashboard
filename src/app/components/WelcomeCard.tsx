@@ -7,7 +7,7 @@ interface WelcomeCardProps {
   departmentName: string;
 }
 
-export function WelcomeCard({ userName, hospitalName, departmentName }: WelcomeCardProps) {
+export default function WelcomeCard({ userName, hospitalName, departmentName }: WelcomeCardProps) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-[8px] p-6 border border-[#d3d3d3] dark:border-gray-700">
       <h2 className="mb-3 text-[#007A8C] dark:text-[#4DB8CC]">{userName}님,</h2>

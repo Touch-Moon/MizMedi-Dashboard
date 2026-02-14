@@ -4,7 +4,7 @@ import "./Submenu.scss";
 
 const MENU_ITEMS = ["My 아이드림 홈", "오늘의 배아", "다이어리"];
 
-export function Submenu() {
+export default function Submenu() {
   return (
     <div className="submenu" aria-label="서브 메뉴">
       <div className="submenu__container">
@@ -19,5 +19,3 @@ export function Submenu() {
     </div>
   );
 }
-
-export default Submenu;

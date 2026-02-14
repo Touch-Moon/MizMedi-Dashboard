@@ -1,37 +1,18 @@
 // =============================================================================
 // Calendar Card - BEM
 // Block: .calendar-card
-// 라이트 모드: WelcomeCard 등과 톤앤매너 맞춤 (흰 배경, #d3d3d3 테두리, #007A8C 포인트)
-// 다크 모드: html.dark 기준
 // =============================================================================
-
-$calendar-border: #d3d3d3;
-$calendar-border-dark: #374151;
-$calendar-title: #007a8c;
-$calendar-title-dark: #4db8cc;
-$calendar-text: #000;
-$calendar-text-dark: #d1d5db;
-$calendar-muted: #6b7280;
-$calendar-muted-dark: #9ca3af;
-$calendar-link: #4b5563;
-$calendar-link-hover: #374151;
-$calendar-link-dark: #9ca3af;
-$calendar-link-hover-dark: #d1d5db;
-$calendar-bg: #fff;
-$calendar-bg-dark: #1f2937;
-$dot-pink: #f472b6;
-$dot-green: #4ade80;
-$dot-blue: #60a5fa;
+@use '../../styles/variables' as v;
 
 .calendar-card {
-  padding: 24px;
+  padding: v.$layout-padding;
   border-radius: 8px;
-  border: 1px solid $calendar-border;
-  background-color: $calendar-bg;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-bg;
 
   html.dark & {
-    border-color: $calendar-border-dark;
-    background-color: $calendar-bg-dark;
+    border-color: v.$color-border-dark;
+    background-color: v.$color-bg-dark;
   }
 
   &__header {
@@ -42,10 +23,10 @@ $dot-blue: #60a5fa;
     gap: 12px;
     margin-bottom: 16px;
     padding-bottom: 16px;
-    border-bottom: 1px solid $calendar-border;
+    border-bottom: 1px solid v.$color-border;
 
     html.dark & {
-      border-bottom-color: $calendar-border-dark;
+      border-bottom-color: v.$color-border-dark;
     }
   }
 
@@ -65,19 +46,19 @@ $dot-blue: #60a5fa;
     border: none;
     border-radius: 6px;
     background: transparent;
-    color: $calendar-title;
+    color: v.$color-accent;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
 
     &:hover {
-      background: rgba($calendar-title, 0.1);
+      background: rgba(v.$color-accent, 0.1);
     }
 
     html.dark & {
-      color: $calendar-title-dark;
+      color: v.$color-accent-dark;
 
       &:hover {
-        background: rgba($calendar-title-dark, 0.2);
+        background: rgba(v.$color-accent-dark, 0.2);
       }
     }
   }
@@ -90,12 +71,12 @@ $dot-blue: #60a5fa;
 
   &__view-toggle {
     display: flex;
-    border: 1px solid $calendar-border;
+    border: 1px solid v.$color-border;
     border-radius: 6px;
     overflow: hidden;
 
     html.dark & {
-      border-color: $calendar-border-dark;
+      border-color: v.$color-border-dark;
     }
   }
 
@@ -103,43 +84,43 @@ $dot-blue: #60a5fa;
     padding: 6px 12px;
     border: none;
     background: transparent;
-    color: $calendar-muted;
-    font-size: 0.8125rem;
-    font-weight: 500;
+    color: v.$color-muted;
+    font-size: v.$font-size-s;
+    font-weight: v.$font-weight-medium;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
 
     &:hover {
-      color: $calendar-text;
+      color: v.$color-text;
     }
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
 
       &:hover {
-        color: $calendar-text-dark;
+        color: v.$color-text-dark;
       }
     }
 
     &--active {
-      background: rgba($calendar-title, 0.12);
-      color: $calendar-title;
+      background: rgba(v.$color-accent, 0.12);
+      color: v.$color-accent;
     }
 
     html.dark &--active {
-      background: rgba($calendar-title-dark, 0.2);
-      color: $calendar-title-dark;
+      background: rgba(v.$color-accent-dark, 0.2);
+      color: v.$color-accent-dark;
     }
   }
 
   &__title {
-    color: $calendar-title;
-    font-size: 1rem;
-    font-weight: 600;
+    color: v.$color-accent;
+    font-size: v.$font-size-m;
+    font-weight: v.$font-weight-semibold;
     margin: 0;
 
     html.dark & {
-      color: $calendar-title-dark;
+      color: v.$color-accent-dark;
     }
   }
 
@@ -147,8 +128,8 @@ $dot-blue: #60a5fa;
     display: flex;
     align-items: center;
     gap: 4px;
-    color: $calendar-link;
-    font-size: 0.875rem;
+    color: v.$color-link;
+    font-size: v.$font-size-base;
     background: none;
     border: none;
     cursor: pointer;
@@ -156,14 +137,14 @@ $dot-blue: #60a5fa;
     transition: color 0.4s ease;
 
     &:hover {
-      color: $calendar-link-hover;
+      color: v.$color-link-hover;
     }
 
     html.dark & {
-      color: $calendar-link-dark;
+      color: v.$color-link-dark;
 
       &:hover {
-        color: $calendar-link-hover-dark;
+        color: v.$color-link-hover-dark;
       }
     }
   }
@@ -176,13 +157,13 @@ $dot-blue: #60a5fa;
 
   &__weekday {
     text-align: center;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: $calendar-muted;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-muted;
     padding: 8px 0;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
@@ -211,12 +192,12 @@ $dot-blue: #60a5fa;
 
     &--today {
       .calendar-card__date {
-        font-weight: 700;
-        color: $calendar-title;
+        font-weight: v.$font-weight-bold;
+        color: v.$color-accent;
       }
 
       html.dark & .calendar-card__date {
-        color: $calendar-title-dark;
+        color: v.$color-accent-dark;
       }
     }
 
@@ -225,18 +206,18 @@ $dot-blue: #60a5fa;
     }
 
     &:focus-visible {
-      outline: 2px solid rgba($calendar-title, 0.4);
+      outline: 2px solid rgba(v.$color-accent, 0.4);
       outline-offset: 2px;
     }
   }
 
   &__date {
-    color: $calendar-text;
+    color: v.$color-text;
     margin-bottom: 4px;
-    font-size: 0.875rem;
+    font-size: v.$font-size-base;
 
     html.dark & {
-      color: $calendar-text-dark;
+      color: v.$color-text-dark;
     }
   }
 
@@ -251,15 +232,15 @@ $dot-blue: #60a5fa;
     border-radius: 50%;
 
     &--pink {
-      background-color: $dot-pink;
+      background-color: v.$dot-pink;
     }
 
     &--green {
-      background-color: $dot-green;
+      background-color: v.$dot-green;
     }
 
     &--blue {
-      background-color: $dot-blue;
+      background-color: v.$dot-blue;
     }
   }
 
@@ -271,8 +252,8 @@ $dot-blue: #60a5fa;
     min-width: 180px;
     max-width: 240px;
     padding: 10px 12px;
-    background: $calendar-bg;
-    border: 1px solid $calendar-border;
+    background: v.$color-bg;
+    border: 1px solid v.$color-border;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     z-index: 10;
@@ -280,45 +261,45 @@ $dot-blue: #60a5fa;
   }
 
   &__tooltip-title {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: $calendar-title;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-accent;
     margin-bottom: 8px;
     padding-bottom: 6px;
-    border-bottom: 1px solid rgba($calendar-border, 0.6);
+    border-bottom: 1px solid rgba(v.$color-border, 0.6);
   }
 
   html.dark &__tooltip-title {
-    color: $calendar-title-dark;
-    border-bottom-color: rgba($calendar-border-dark, 0.6);
+    color: v.$color-accent-dark;
+    border-bottom-color: rgba(v.$color-border-dark, 0.6);
   }
 
   &__tooltip-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8125rem;
-    color: $calendar-text;
+    font-size: v.$font-size-s;
+    color: v.$color-text;
     padding: 4px 0;
 
     html.dark & {
-      color: $calendar-text-dark;
+      color: v.$color-text-dark;
     }
   }
 
   &__tooltip-time {
     flex-shrink: 0;
-    font-size: 0.6875rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-xs;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
   html.dark &__tooltip {
-    background: $calendar-bg-dark;
-    border-color: $calendar-border-dark;
+    background: v.$color-bg-dark;
+    border-color: v.$color-border-dark;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
@@ -332,13 +313,13 @@ $dot-blue: #60a5fa;
   &__week-day {
     min-height: 100px;
     padding: 8px;
-    border: 1px solid rgba($calendar-border, 0.5);
+    border: 1px solid rgba(v.$color-border, 0.5);
     border-radius: 6px;
     display: flex;
     flex-direction: row;
 
     html.dark & {
-      border-color: rgba($calendar-border-dark, 0.5);
+      border-color: rgba(v.$color-border-dark, 0.5);
     }
   }
 
@@ -351,33 +332,33 @@ $dot-blue: #60a5fa;
   }
 
   html.dark &__week-day-header {
-    border-bottom-color: rgba($calendar-border-dark, 0.4);
+    border-bottom-color: rgba(v.$color-border-dark, 0.4);
   }
 
   &__week-day-name {
-    font-size: 0.6875rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-xs;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
   &__week-day-num {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: $calendar-text;
+    font-size: v.$font-size-l;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text;
 
     html.dark & {
-      color: $calendar-text-dark;
+      color: v.$color-text-dark;
     }
 
     &--today {
-      color: $calendar-title;
+      color: v.$color-accent;
     }
 
     html.dark &--today {
-      color: $calendar-title-dark;
+      color: v.$color-accent-dark;
     }
   }
 
@@ -389,21 +370,21 @@ $dot-blue: #60a5fa;
     justify-content: center;
     padding: 8px 32px;
     gap: 4px;
-    font-size: 1rem;
-    color: $calendar-text;
-    border-left: 1px solid rgba($calendar-border, 0.05);
+    font-size: v.$font-size-m;
+    color: v.$color-text;
+    border-left: 1px solid rgba(v.$color-border, 0.05);
 
     html.dark & {
-      color: $calendar-text-dark;
+      color: v.$color-text-dark;
     }
   }
 
   &__week-day-empty {
-    color: $calendar-muted;
-    font-size: 0.6875rem;
+    color: v.$color-muted;
+    font-size: v.$font-size-xs;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
@@ -412,7 +393,7 @@ $dot-blue: #60a5fa;
     align-items: center;
     gap: 6px;
     padding: 4px 0;
-    border-bottom: 1px solid rgba($calendar-border, 0.2);
+    border-bottom: 1px solid rgba(v.$color-border, 0.2);
     width: 100%;
     text-align: left;
     border-left: none;
@@ -428,7 +409,7 @@ $dot-blue: #60a5fa;
     }
 
     &:focus-visible {
-      outline: 2px solid rgba($calendar-title, 0.4);
+      outline: 2px solid rgba(v.$color-accent, 0.4);
       outline-offset: 2px;
       border-radius: 4px;
     }
@@ -436,11 +417,11 @@ $dot-blue: #60a5fa;
 
   &__schedule-time {
     flex-shrink: 0;
-    font-size: 1rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-m;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
@@ -452,11 +433,11 @@ $dot-blue: #60a5fa;
 
   &__day-empty {
     margin: 0;
-    font-size: 0.875rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-base;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
@@ -472,13 +453,13 @@ $dot-blue: #60a5fa;
     gap: 12px;
     padding: 10px 12px;
     border-radius: 6px;
-    font-size: 0.875rem;
-    color: $calendar-text;
-    background: rgba($calendar-border, 0.15);
+    font-size: v.$font-size-base;
+    color: v.$color-text;
+    background: rgba(v.$color-border, 0.15);
 
     html.dark & {
-      color: $calendar-text-dark;
-      background: rgba($calendar-border-dark, 0.2);
+      color: v.$color-text-dark;
+      background: rgba(v.$color-border-dark, 0.2);
     }
 
     & + & {
@@ -492,7 +473,7 @@ $dot-blue: #60a5fa;
     padding-top: 16px;
 
     html.dark & {
-      border-top-color: $calendar-border-dark;
+      border-top-color: v.$color-border-dark;
     }
   }
 
@@ -507,46 +488,46 @@ $dot-blue: #60a5fa;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: $calendar-text;
+    font-size: v.$font-size-base;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text;
 
     html.dark & {
-      color: $calendar-text-dark;
+      color: v.$color-text-dark;
     }
   }
 
   &__full-list-select {
     padding: 6px 10px;
     border-radius: 6px;
-    border: 1px solid $calendar-border;
-    font-size: 0.875rem;
-    background: $calendar-bg;
-    color: $calendar-text;
+    border: 1px solid v.$color-border;
+    font-size: v.$font-size-base;
+    background: v.$color-bg;
+    color: v.$color-text;
 
     html.dark & {
-      border-color: $calendar-border-dark;
-      background: $calendar-bg-dark;
-      color: $calendar-text-dark;
+      border-color: v.$color-border-dark;
+      background: v.$color-bg-dark;
+      color: v.$color-text-dark;
     }
   }
 
   &__full-list-total {
-    font-size: 0.8125rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-s;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
   &__full-list-empty {
     margin: 0;
-    font-size: 0.875rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-base;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
@@ -561,15 +542,15 @@ $dot-blue: #60a5fa;
     align-items: center;
     padding: 10px 12px;
     border-radius: 6px;
-    font-size: 0.875rem;
-    border-bottom: 1px solid rgba($calendar-border, 0.3);
+    font-size: v.$font-size-base;
+    border-bottom: 1px solid rgba(v.$color-border, 0.3);
 
     &:last-child {
       border-bottom: none;
     }
 
     html.dark & {
-      border-bottom-color: rgba($calendar-border-dark, 0.3);
+      border-bottom-color: rgba(v.$color-border-dark, 0.3);
     }
   }
 
@@ -587,7 +568,7 @@ $dot-blue: #60a5fa;
     cursor: pointer;
 
     &:focus-visible {
-      outline: 2px solid rgba($calendar-title, 0.4);
+      outline: 2px solid rgba(v.$color-accent, 0.4);
       outline-offset: 2px;
       border-radius: 4px;
     }
@@ -596,30 +577,30 @@ $dot-blue: #60a5fa;
   &__full-list-date {
     flex-shrink: 0;
     min-width: 100px;
-    font-weight: 500;
-    color: $calendar-muted;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 
   &__full-list-content {
     flex: 1;
-    color: $calendar-text;
+    color: v.$color-text;
 
     html.dark & {
-      color: $calendar-text-dark;
+      color: v.$color-text-dark;
     }
   }
 
   &__full-list-time {
     margin-right: 8px;
-    font-size: 0.75rem;
-    color: $calendar-muted;
+    font-size: v.$font-size-sm;
+    color: v.$color-muted;
 
     html.dark & {
-      color: $calendar-muted-dark;
+      color: v.$color-muted-dark;
     }
   }
 

@@ -1,13 +1,15 @@
 import React from "react";
 import Navigation from "./components/Navigation";
-import { WelcomeCard } from "./components/WelcomeCard";
-import { MedicationCard } from "./components/MedicationCard";
-import { AppointmentCard } from "./components/AppointmentCard";
-import { CalendarCard } from "./components/CalendarCard";
-import { EmbryoCard } from "./components/EmbryoCard";
-import { TestimonialCard } from "./components/TestimonialCard";
-import { ThemeToggle } from "./components/ThemeToggle";
-import { Footer } from "./components/Footer";
+import {
+  WelcomeCard,
+  MedicationCard,
+  AppointmentCard,
+  CalendarCard,
+  EmbryoCard,
+  TestimonialCard,
+  ThemeToggle,
+  Footer,
+} from "./components";
 
 import "./App.scss";
 

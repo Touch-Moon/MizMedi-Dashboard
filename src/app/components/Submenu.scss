@@ -2,19 +2,8 @@
 // Submenu - BEM
 // Block: .submenu
 // =============================================================================
+@use '../../styles/variables' as v;
 
-$submenu-bg: #ffffff;
-$submenu-bg-dark: #111827;
-$submenu-border: #d3d3d3;
-$submenu-border-dark: #374151;
-$submenu-text: #111827;
-$submenu-text-dark: #e5e7eb;
-$submenu-text-muted: #6b7280;
-$submenu-text-muted-dark: #9ca3af;
-$submenu-hover: #007a8c;
-$submenu-hover-dark: #4db8cc;
-
-$submenu-max-width: 1440px;
 $submenu-padding-x: 24px;
 $submenu-padding-y: 12px;
 $submenu-gap: 16px;
@@ -45,9 +34,9 @@ $submenu-gap: 16px;
   &__item {
     border: none;
     background: none;
-    padding: 8px 6px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    padding: 12px 6px;
+    font-size: v.$font-size-base;
+    font-weight: v.$font-weight-semibold;
     color: #fff;
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);

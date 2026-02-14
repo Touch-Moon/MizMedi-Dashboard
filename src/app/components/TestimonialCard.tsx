@@ -6,7 +6,7 @@ interface TestimonialCardProps {
   content: string;
 }
 
-export function TestimonialCard({ title, content }: TestimonialCardProps) {
+export default function TestimonialCard({ title, content }: TestimonialCardProps) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-[8px] p-6 border border-[#d3d3d3] dark:border-gray-700">
       <div className="flex justify-between items-center mb-4">
