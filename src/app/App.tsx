@@ -9,6 +9,8 @@ import { TestimonialCard } from "./components/TestimonialCard";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { Footer } from "./components/Footer";
 
+import "./App.scss";
+
 export default function App() {
   const medications = [
     { name: "크렌신", dosage: "40mg", color: "bg-pink-400" },
@@ -17,23 +19,22 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-400">
+    <div className="app">
       <Navigation />
-      <div className="p-6">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="app__content">
+        <div className="app__container">
+          <div className="app__grid">
             {/* First Column - 3/12 */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="app__col app__col--span-3">
               <WelcomeCard
                 userName="홍길동"
                 hospitalName="미즈메디병원"
                 departmentName="아이드림센터"
               />
-
             </div>
 
             {/* Second Column - 5/12 */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="app__col app__col--span-5">
               <CalendarCard />
 
               <EmbryoCard />
@@ -45,7 +46,7 @@ export default function App() {
             </div>
 
             {/* Third Column - 4/12 */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="app__col app__col--span-4">
               <MedicationCard medications={medications} />
 
               <AppointmentCard

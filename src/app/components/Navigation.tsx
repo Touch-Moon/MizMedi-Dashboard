@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import svgPaths from '../../imports/svg-9lna0gexs7';
-import './Navigation.scss';
+import React, { useState, useEffect, useRef } from "react";
+import svgPaths from "../../imports/svg-9lna0gexs7";
+import { Submenu } from "./Submenu";
+import "./Navigation.scss";
 
 // Logo SVG Components
 const LogoIcon: React.FC = () => (
@@ -83,6 +84,8 @@ const HamburgerIcon: React.FC = () => (
 // Navigation Component
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const submenuCloseTimeout = useRef<number | null>(null);
 
   // body 스크롤 제어
   useEffect(() => {
@@ -100,14 +103,22 @@ const Navigation: React.FC = () => {
   // ESC 키로 메뉴 닫기
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMenuOpen) {
+      if (e.key === "Escape" && isMenuOpen) {
         setIsMenuOpen(false);
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (submenuCloseTimeout.current) {
+        window.clearTimeout(submenuCloseTimeout.current);
+      }
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -117,6 +128,31 @@ const Navigation: React.FC = () => {
     console.log(`Clicked: ${menu}`);
     setIsMenuOpen(false); // 메뉴 클릭시 모바일 메뉴 닫기
     // 메뉴 클릭 로직 추가
+  };
+
+  const clearSubmenuClose = () => {
+    if (submenuCloseTimeout.current) {
+      window.clearTimeout(submenuCloseTimeout.current);
+      submenuCloseTimeout.current = null;
+    }
+  };
+
+  const openSubmenu = () => {
+    clearSubmenuClose();
+    setIsSubmenuOpen(true);
+  };
+
+  const scheduleCloseSubmenu = () => {
+    clearSubmenuClose();
+    submenuCloseTimeout.current = window.setTimeout(() => {
+      setIsSubmenuOpen(false);
+    }, 140);
+  };
+
+  const handleSubmenuBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      scheduleCloseSubmenu();
+    }
   };
 
   // 모바일 메뉴 오버레이 클릭시 닫기
@@ -139,18 +175,36 @@ const Navigation: React.FC = () => {
         </button>
 
         {/* Logo Section */}
-        <div className="nav-logo-wrap">
-          <button className="nav-logo" aria-label="홈으로 가기">
-            <LogoIcon />
-            <LogoText />
-          </button>
-          
-          <div className="nav-divider" />
-          
-          <button className="nav-logo-menu" onClick={() => handleMenuClick('아이드림센터')}>
-            <span>아이드림센터</span>
-            <DownArrowIcon />
-          </button>
+        <div className="nav-logo-group">
+          <div className="nav-logo-wrap">
+            <button className="nav-logo" aria-label="홈으로 가기">
+              <LogoIcon />
+              <LogoText />
+            </button>
+            
+            <div className="nav-divider" />
+            
+            <div
+              className="nav-logo-menu-wrap"
+              onMouseEnter={openSubmenu}
+              onMouseLeave={scheduleCloseSubmenu}
+              onFocusCapture={openSubmenu}
+              onBlurCapture={handleSubmenuBlur}
+            >
+              <button
+                className={`nav-logo-menu ${isSubmenuOpen ? "nav-logo-menu--open" : ""}`}
+                onClick={() => handleMenuClick("아이드림센터")}
+                onFocus={openSubmenu}
+              >
+                <span>아이드림센터</span>
+                <DownArrowIcon />
+              </button>
+
+              <div className={`nav-submenu ${isSubmenuOpen ? "nav-submenu--open" : ""}`}>
+                <Submenu />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Desktop Menu */}
@@ -197,8 +251,8 @@ const Navigation: React.FC = () => {
             </button>
         </div>
 
-        
       </div>
+
     </nav>
   );
 };

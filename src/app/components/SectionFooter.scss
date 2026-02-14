@@ -762,4 +762,9 @@ $footer-bg-image: url('../../assets/bg-footer.jpg');
   }
 }
 
+@media (max-width: 1279px) {
+  .section-footer {
+    display: none;
+  }
+}
 

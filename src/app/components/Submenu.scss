@@ -1,0 +1,74 @@
+// =============================================================================
+// Submenu - BEM
+// Block: .submenu
+// =============================================================================
+
+$submenu-bg: #ffffff;
+$submenu-bg-dark: #111827;
+$submenu-border: #d3d3d3;
+$submenu-border-dark: #374151;
+$submenu-text: #111827;
+$submenu-text-dark: #e5e7eb;
+$submenu-text-muted: #6b7280;
+$submenu-text-muted-dark: #9ca3af;
+$submenu-hover: #007a8c;
+$submenu-hover-dark: #4db8cc;
+
+$submenu-max-width: 1440px;
+$submenu-padding-x: 24px;
+$submenu-padding-y: 12px;
+$submenu-gap: 16px;
+
+.submenu {
+  display: inline-flex;
+  border-radius: 8px;
+  background-color: #0b0b0b;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+  html.dark & {
+    background-color: #101010;
+  }
+
+  &__container {
+    padding: 0;
+    min-width: 160px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  &__item {
+    border: none;
+    background: none;
+    padding: 8px 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: color 0.3s ease;
+    width: 100%;
+
+    html.dark & {
+      color: #cbd5f5;
+    }
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.25);
+      outline-offset: 2px;
+    }
+
+    &:last-child {
+      border-bottom-color: transparent;
+    }
+  }
+}

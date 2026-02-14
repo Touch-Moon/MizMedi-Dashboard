@@ -36,14 +36,99 @@ $dot-blue: #60a5fa;
 
   &__header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     margin-bottom: 16px;
     padding-bottom: 16px;
     border-bottom: 1px solid $calendar-border;
 
     html.dark & {
       border-bottom-color: $calendar-border-dark;
+    }
+  }
+
+  &__nav-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: $calendar-title;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: rgba($calendar-title, 0.1);
+    }
+
+    html.dark & {
+      color: $calendar-title-dark;
+
+      &:hover {
+        background: rgba($calendar-title-dark, 0.2);
+      }
+    }
+  }
+
+  &__header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__view-toggle {
+    display: flex;
+    border: 1px solid $calendar-border;
+    border-radius: 6px;
+    overflow: hidden;
+
+    html.dark & {
+      border-color: $calendar-border-dark;
+    }
+  }
+
+  &__view-btn {
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    color: $calendar-muted;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: $calendar-text;
+    }
+
+    html.dark & {
+      color: $calendar-muted-dark;
+
+      &:hover {
+        color: $calendar-text-dark;
+      }
+    }
+
+    &--active {
+      background: rgba($calendar-title, 0.12);
+      color: $calendar-title;
+    }
+
+    html.dark &--active {
+      background: rgba($calendar-title-dark, 0.2);
+      color: $calendar-title-dark;
     }
   }
 
@@ -108,6 +193,7 @@ $dot-blue: #60a5fa;
   }
 
   &__day {
+    position: relative;
     aspect-ratio: 1;
     display: flex;
     flex-direction: column;
@@ -117,6 +203,30 @@ $dot-blue: #60a5fa;
 
     html.dark & {
       border-bottom-color: rgba(55, 65, 81, 0.5);
+    }
+
+    &--other {
+      opacity: 0.45;
+    }
+
+    &--today {
+      .calendar-card__date {
+        font-weight: 700;
+        color: $calendar-title;
+      }
+
+      html.dark & .calendar-card__date {
+        color: $calendar-title-dark;
+      }
+    }
+
+    &--has-schedule {
+      cursor: pointer;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba($calendar-title, 0.4);
+      outline-offset: 2px;
     }
   }
 
@@ -150,6 +260,366 @@ $dot-blue: #60a5fa;
 
     &--blue {
       background-color: $dot-blue;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 180px;
+    max-width: 240px;
+    padding: 10px 12px;
+    background: $calendar-bg;
+    border: 1px solid $calendar-border;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  &__tooltip-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $calendar-title;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba($calendar-border, 0.6);
+  }
+
+  html.dark &__tooltip-title {
+    color: $calendar-title-dark;
+    border-bottom-color: rgba($calendar-border-dark, 0.6);
+  }
+
+  &__tooltip-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    color: $calendar-text;
+    padding: 4px 0;
+
+    html.dark & {
+      color: $calendar-text-dark;
+    }
+  }
+
+  &__tooltip-time {
+    flex-shrink: 0;
+    font-size: 0.6875rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  html.dark &__tooltip {
+    background: $calendar-bg-dark;
+    border-color: $calendar-border-dark;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  // 주간 뷰
+  &__week-view {
+    display: grid;
+    grid-template-columns: repeat(1, 7fr);
+    gap: 8px;
+  }
+
+  &__week-day {
+    min-height: 100px;
+    padding: 8px;
+    border: 1px solid rgba($calendar-border, 0.5);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+
+    html.dark & {
+      border-color: rgba($calendar-border-dark, 0.5);
+    }
+  }
+
+  &__week-day-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 80px;
+  }
+
+  html.dark &__week-day-header {
+    border-bottom-color: rgba($calendar-border-dark, 0.4);
+  }
+
+  &__week-day-name {
+    font-size: 0.6875rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__week-day-num {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $calendar-text;
+
+    html.dark & {
+      color: $calendar-text-dark;
+    }
+
+    &--today {
+      color: $calendar-title;
+    }
+
+    html.dark &--today {
+      color: $calendar-title-dark;
+    }
+  }
+
+  &__week-day-schedules {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 8px 32px;
+    gap: 4px;
+    font-size: 1rem;
+    color: $calendar-text;
+    border-left: 1px solid rgba($calendar-border, 0.05);
+
+    html.dark & {
+      color: $calendar-text-dark;
+    }
+  }
+
+  &__week-day-empty {
+    color: $calendar-muted;
+    font-size: 0.6875rem;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba($calendar-border, 0.2);
+    width: 100%;
+    text-align: left;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba($calendar-title, 0.4);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  }
+
+  &__schedule-time {
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  // 일간 뷰
+  &__day-view {
+    min-height: 120px;
+    padding: 12px 0;
+  }
+
+  &__day-empty {
+    margin: 0;
+    font-size: 0.875rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__schedule-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__schedule-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: $calendar-text;
+    background: rgba($calendar-border, 0.15);
+
+    html.dark & {
+      color: $calendar-text-dark;
+      background: rgba($calendar-border-dark, 0.2);
+    }
+
+    & + & {
+      margin-top: 6px;
+    }
+  }
+
+  // 전체 일정 리스트 (건수로 관리, 스크롤 없음)
+  &__full-list {
+    margin-top: 16px;
+    padding-top: 16px;
+
+    html.dark & {
+      border-top-color: $calendar-border-dark;
+    }
+  }
+
+  &__full-list-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  &__full-list-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $calendar-text;
+
+    html.dark & {
+      color: $calendar-text-dark;
+    }
+  }
+
+  &__full-list-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid $calendar-border;
+    font-size: 0.875rem;
+    background: $calendar-bg;
+    color: $calendar-text;
+
+    html.dark & {
+      border-color: $calendar-border-dark;
+      background: $calendar-bg-dark;
+      color: $calendar-text-dark;
+    }
+  }
+
+  &__full-list-total {
+    font-size: 0.8125rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__full-list-empty {
+    margin: 0;
+    font-size: 0.875rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__full-list-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__full-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    border-bottom: 1px solid rgba($calendar-border, 0.3);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    html.dark & {
+      border-bottom-color: rgba($calendar-border-dark, 0.3);
+    }
+  }
+
+  &__full-list-button {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 0;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid rgba($calendar-title, 0.4);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  }
+
+  &__full-list-date {
+    flex-shrink: 0;
+    min-width: 100px;
+    font-weight: 500;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
+    }
+  }
+
+  &__full-list-content {
+    flex: 1;
+    color: $calendar-text;
+
+    html.dark & {
+      color: $calendar-text-dark;
+    }
+  }
+
+  &__full-list-time {
+    margin-right: 8px;
+    font-size: 0.75rem;
+    color: $calendar-muted;
+
+    html.dark & {
+      color: $calendar-muted-dark;
     }
   }
 
