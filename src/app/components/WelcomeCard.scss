@@ -1,0 +1,237 @@
+// =============================================================================
+// Welcome Card - BEM
+// Block: .welcome-card
+// =============================================================================
+@use '../../styles/variables' as v;
+
+$color-reserve-bg: #07394a;
+
+.welcome-card {
+  border-radius: 8px;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-bg;
+  padding: v.$layout-padding;
+
+  html.dark & {
+    border-color: v.$color-border-dark;
+    background-color: v.$color-bg-dark;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-accent;
+
+    html.dark & {
+      color: v.$color-accent-dark;
+    }
+  }
+
+  &__message {
+    margin: 0 0 16px;
+    color: v.$color-text;
+    line-height: 1.5;
+
+    html.dark & {
+      color: v.$color-text-dark;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  &__header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__menu {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__menu-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: none;
+    color: v.$color-muted;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: v.$color-link-hover;
+      border-color: v.$color-border;
+    }
+
+    html.dark & {
+      color: v.$color-muted-dark;
+    }
+
+    html.dark &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: v.$color-link-hover-dark;
+      border-color: v.$color-border-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.25);
+      outline-offset: 2px;
+    }
+
+    html.dark &:focus-visible {
+      outline-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__menu-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  &__menu-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 140px;
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid v.$color-border;
+    background-color: v.$color-bg;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 5;
+
+    html.dark & {
+      border-color: v.$color-border-dark;
+      background-color: v.$color-bg-dark;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  // 버튼 ↔ 드롭다운 사이(8px)로 이동할 때 hover가 끊기지 않도록
+  // 리스트 박스를 위로 8px 확장하는 "안전 영역"을 만든다.
+  &__menu-list::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: transparent;
+  }
+
+  &__menu:hover &__menu-list,
+  &__menu:focus-within &__menu-list {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &__menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: v.$font-size-base;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-link-hover;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: left;
+
+    html.dark & {
+      color: v.$color-link-hover-dark;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: rgba(0, 0, 0, 0.04);
+      outline: none;
+    }
+
+    html.dark &:hover,
+    html.dark &:focus-visible {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &__reserve-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: v.$color-white;
+    background-color: $color-reserve-bg;
+    transition: background-color 0.4s ease;
+
+    html.dark & {
+      background-color: v.$color-accent-dark;
+    }
+
+    &:hover {
+      background-color: v.$color-accent;
+    }
+
+    html.dark &:hover {
+      background-color: v.$color-accent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.25);
+      outline-offset: 2px;
+    }
+
+    html.dark &:focus-visible {
+      outline-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__reserve-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: v.$breakpoint-mobile) {
+  .welcome-card {
+    &__header {
+      align-items: flex-start;
+    }
+
+    &__header-actions {
+      gap: 6px;
+    }
+  }
+}
+
